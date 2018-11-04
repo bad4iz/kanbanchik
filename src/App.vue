@@ -1,14 +1,34 @@
 <template>
-  <div id="app">
-    <v-app>
+    <v-app id='app' :dark="darkTheme">
+      <v-toolbar color="primary">
+            <v-switch
+              color="indigo"
+              :label="`Dark theme: ${darkTheme.toString()}`"
+              v-model="darkTheme"
+            ></v-switch>
+      </v-toolbar>
+
       <div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
       </div>
-      <router-view/>
+      <v-layout>
+        <router-view/>
+      </v-layout>
+ 
     </v-app>
-  </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      darkTheme: true,
+    };
+  },
+}
+</script>
+
 
 <style lang="scss">
 #app {

@@ -1,6 +1,5 @@
 <template lang="pug">
-  .home
-    img( alt="Vue logo" src="../assets/logo.png")
+  v-flex(xs12 sm10 offset-sm1)
     card-container
       h3 slot
 </template>

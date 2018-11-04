@@ -1,9 +1,24 @@
 <template lang="pug">
-    .aaaa
-      h1 container 
-        button add card
-        v-btn(color="success") Success
-        slot
+v-card
+  v-toolbar(color="cyan")
+    v-btn(absolute bottom color="success" right fab )
+      v-icon add
+    //- v-toolbar-side-icon
+    v-toolbar-title container
+    //- v-spacer
+
+
+  v-card-title(primary-title)
+    .headline container 
+
+    //- v-tooltip(top)
+    //-   v-btn(absolute fab color="success" slot="activator")
+    //-     v-icon add
+      span add card
+    //- slot
+  v-btn(absolute bottom color="pink" right fab )
+    v-icon mdi-plus
+
 </template>
 
 <script>
