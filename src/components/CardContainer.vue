@@ -1,12 +1,14 @@
 <template lang="pug">
-    .aaaa 
-      h1 container
+    .aaaa
+      h1 container 
+        button add card
+        v-btn(color="success") Success
         slot
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'CardContainer',
   props: {
     msg: String,
   },
