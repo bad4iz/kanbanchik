@@ -16,13 +16,21 @@ v-card
     //-     v-icon add
       span add card
     //- slot
-  v-btn(absolute bottom color="pink" right fab )
-    v-icon mdi-plus
+  div( v-if="card.subcards")
+    ul
+      li( v-for="(item) in card.subcards" v-bind:key="item.id")
+                  {{ item }}
+        card( v-bind:id="item")
 
 </template>
 
 <script>
+import Card from './Card';
+
 export default {
+  components:{
+    Card
+  },
   name: 'CardContainer',
   props: {
     msg: String,
