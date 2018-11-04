@@ -1,5 +1,10 @@
 # kanbanchik
 
+## Project storybook
+```
+yarn storybook
+```
+
 ## Project setup
 ```
 yarn install
