@@ -7,7 +7,9 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "register-service-worker": "^1.0.0",
@@ -31,8 +33,17 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "node-sass": "^4.9.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "@storybook/vue": "^4.0.2",
+    "@storybook/addon-actions": "^4.0.2",
+    "@storybook/addon-links": "^4.0.2",
+    "@storybook/addons": "^4.0.2",
+    "babel-preset-vue": "^2.0.2",
+    "@babel/core": "^7.1.2",
+    "babel-loader": "^8.0.4"
   },
   "eslintConfig": {
     "root": true,

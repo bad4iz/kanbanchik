@@ -1,5 +1,6 @@
 <template lang="pug">
-    .aaaa iooiuio
+    .aaaa 
+      h1 card
 </template>
 
 <script>
