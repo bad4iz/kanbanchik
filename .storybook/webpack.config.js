@@ -14,10 +14,7 @@ module.exports = (storybookBaseConfig, configType, defaultConfig) => {
     // if you'd like to use pug
     {
         test: /\.pug$/,
-        use: [
-            { loader: 'html-loader' },
-            { loader: 'pug-html-loader' }
-        ]
+        loader: 'pug-plain-loader'
     });
 
   return defaultConfig;
