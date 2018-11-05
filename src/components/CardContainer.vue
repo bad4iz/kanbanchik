@@ -11,7 +11,7 @@ div {{subcards}}
 <script>
 import { mapGetters } from 'vuex'
 
-import Card from '@/components/Card.vue';
+import Card from './Card.vue';
 
 export default {
   name: 'CardContainer',

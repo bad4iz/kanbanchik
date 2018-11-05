@@ -5,7 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import MyButton from './MyButton';
-import HelloWorld from '../src/components/HelloWorld.vue';
+import HelloWorld from '../src/components/HelloWorld';
+import CardContainer from '../src/components/CardContainer';
 // import Welcome from './Welcome';
 import Card from '../src/components/Card';
 // import CardContainer from '../src/components/CardContainer';
@@ -16,9 +17,17 @@ import store from '../src/store/store';
 
 storiesOf('HelloWorld', module).add('to HelloWorld', () => ({
   components: { HelloWorld },
-  template: '<helloworld :showApp="action" />',
+  template: '<hello-world :showApp="action" />',
   methods: { action: linkTo('Button') },
 }));
+
+storiesOf('CardContainer', module).add('to ', () => ({
+  components: { CardContainer },
+  template: '<card-container :subcards="[1,2,3]" :showApp="action" />',
+  store,
+  methods: { action: linkTo('Button') },
+}));
+
 
 storiesOf('Cards', module)
 .add('card one', () => ({
@@ -35,17 +44,6 @@ storiesOf('Cards', module)
 }));
 
 
-// storiesOf('CardContainer', module)
-// .add('Container empty', () => ({
-//   components: { CardContainer },
-//   template: '<card-container :showApp="action" />',
-//   methods: { action: linkTo('Button') },
-// }))
-// .add('Container with card', () => ({
-//   components: { CardContainer, Card },
-//   template: '<card-container><card/></card-container>',
-//   methods: { action: linkTo('Button') },
-// }));
 
 
 
