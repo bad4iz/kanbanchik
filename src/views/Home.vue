@@ -1,7 +1,7 @@
 <template lang="pug">
   v-flex(xs12 sm10 offset-sm1)
     //- card(:id="1")
-    card-container(:subcards="[1,2,3]")
+    card-container(:subcards="[1]")
       
     </v-container>
 </template>

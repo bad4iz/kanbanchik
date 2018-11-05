@@ -23,7 +23,7 @@ storiesOf('HelloWorld', module).add('to HelloWorld', () => ({
 
 storiesOf('CardContainer', module).add('to ', () => ({
   components: { CardContainer },
-  template: '<card-container :subcards="[1,2,3]" :showApp="action" />',
+  template: '<card-container :subcards="[2]" :showApp="action" />',
   store,
   methods: { action: linkTo('Button') },
 }));

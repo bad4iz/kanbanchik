@@ -1,27 +1,24 @@
 <template lang="pug">
-div {{subcards}}
-  v-btn(absolute bottom color="success" right fab @click="addCard(id)")
-    v-icon add
-  .subcards(v-if="subcards.length")
-    .i(v-for="(item) in subcards" v-bind:key="item")
-      card(:id="item")
+div
+
+  div(v-if="subcards")
+    .subcards(v-if="subcards.length")
+      .i(v-for="(item) in subcards" v-bind:key="item")
+        card(:id="item")
   //- card(:id="")
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
-import Card from './Card.vue';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'CardContainer',
   props: ['subcards'],
   components:{
-    Card
+    Card: () => import('./Card')
   },
   data() {
     return {
-      // card: getCard(0)
     };
   },
   computed: {
@@ -30,11 +27,26 @@ export default {
       'getList',
       'getCard'
     ])
+  },
+    methods: {
+    ...mapActions([
+      'addCard' // проксирует `this.addCard()` в `this.$store.dispatch('addCard')`
+
+    ]),
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+.v-card {
+  margin: 5px;
+  min-height: 100xp;
+}
+.subcards {
+  display: flex;
+  height: 100px;
+  Justify-content: space-around;
+  flex-flow: row wrap;
+}
 </style>
