@@ -5,39 +5,47 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import MyButton from './MyButton';
-import Welcome from '../src/components/HelloWorld';
+import HelloWorld from '../src/components/HelloWorld.vue';
 // import Welcome from './Welcome';
 import Card from '../src/components/Card';
-import CardContainer from '../src/components/CardContainer';
+// import CardContainer from '../src/components/CardContainer';
+
+import store from '../src/store/store';
 
 
 
-
-storiesOf('Welcome', module).add('to Storybook', () => ({
-  components: { Welcome },
-  template: '<welcome :showApp="action" />',
+storiesOf('HelloWorld', module).add('to HelloWorld', () => ({
+  components: { HelloWorld },
+  template: '<helloworld :showApp="action" />',
   methods: { action: linkTo('Button') },
 }));
 
 storiesOf('Cards', module)
-.add('card empty', () => ({
+.add('card one', () => ({
   components: { Card },
-  template: '<card :showApp="action" />',
-  methods: { action: linkTo('Button') },
-}));
-
-
-storiesOf('CardContainer', module)
-.add('Container empty', () => ({
-  components: { CardContainer },
-  template: '<card-container :showApp="action" />',
+  template: '<card :id="1" :showApp="action" />',
+  store,
   methods: { action: linkTo('Button') },
 }))
-.add('Container with card', () => ({
-  components: { CardContainer, Card },
-  template: '<card-container><card/></card-container>',
+.add('card two', () => ({
+  components: { Card },
+  template: '<card :id="2" :showApp="action" />',
+  store,
   methods: { action: linkTo('Button') },
 }));
+
+
+// storiesOf('CardContainer', module)
+// .add('Container empty', () => ({
+//   components: { CardContainer },
+//   template: '<card-container :showApp="action" />',
+//   methods: { action: linkTo('Button') },
+// }))
+// .add('Container with card', () => ({
+//   components: { CardContainer, Card },
+//   template: '<card-container><card/></card-container>',
+//   methods: { action: linkTo('Button') },
+// }));
 
 
 

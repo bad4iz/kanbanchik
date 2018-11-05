@@ -16,21 +16,21 @@ export default new Vuex.Store({
       1: {
         id: 1,
         check: true,
-        value: 'dddddd',
+        value: 'one',
         subcards: [2, 3],
         parent: 0
       },
       2: {
         id: 2,
         check: false,
-        value: '',
+        value: 'two',
         subcards: [],
         parent: 1
       },
       3:{
         id: 3,
         check: false,
-        value: '',
+        value: 'three',
         subcards: [],
         parent: 1
       },

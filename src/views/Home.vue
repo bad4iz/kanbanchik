@@ -1,17 +1,21 @@
 <template lang="pug">
   v-flex(xs12 sm10 offset-sm1)
-    card-container
-      h3 slot
+    //- card(:id="1")
+    card-container(:subcards="[1,2,3]")
+      
+    </v-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import CardContainer from '@/components/CardContainer.vue';
+import Card from '@/components/Card';
+import CardContainer from '@/components/CardContainer';
 
 export default {
   name: 'home',
   components: {
-    CardContainer,
+    Card,
+    CardContainer
   },
 };
 </script>

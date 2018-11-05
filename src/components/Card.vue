@@ -1,14 +1,9 @@
 <template lang="pug">
 v-card
   v-toolbar(color="cyan")
-    v-btn(absolute bottom color="success" right fab @click="addCard(id)")
-      v-icon add
-    //- v-toolbar-side-icon
-    v-toolbar-title card value: {{card.value}}
-  .title 
-  .subcards(v-if="card.subcards")
-    .i(v-for="(item) in card.subcards" v-bind:key="item.id")
-      card(:id="item")
+    v-toolbar-title card
+  v-card-title 
+    div {{card.value}}
       
 </template>
 
@@ -16,8 +11,12 @@ v-card
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'Card',
-  props: ['id'],
+  props: {
+    id: {
+      type: Number,
+      default: 1,
+    }
+  },
   data() {
     return {
       card: this.$store.getters.getCard(this.id)
