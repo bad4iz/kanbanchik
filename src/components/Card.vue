@@ -4,9 +4,8 @@ v-card
     v-toolbar-title {{card.value}} card
       v-btn(absolute bottom color="success" right fab @click="addCard(id)")
         v-icon add
-  v-card-title 
-    div 
-  card-container(:subcards="card.subcards") 
+  v-card-text 
+    card-container(:subcards="card.subcards") 
 
       
 </template>
@@ -44,11 +43,13 @@ export default {
 .v-card {
   margin: 5px;
   min-height: 100xp;
-  // max-width: 500px;
 }
 .subcards {
   display: flex;
   height: 100px;
   Justify-content: space-around;
+}
+.v-card-text{
+  height: 100%;
 }
 </style>

@@ -1,11 +1,9 @@
 <template lang="pug">
-div
-
-  div(v-if="subcards")
-    .subcards(v-if="subcards.length")
-      .i(v-for="(item) in subcards" v-bind:key="item")
+v-container(v-if="subcards")
+  v-layout( v-layout row wrap v-if="subcards.length")
+      v-flex(v-for="(item) in subcards" v-bind:key="item")
         card(:id="item")
-  //- card(:id="")
+       
 </template>
 
 <script>
@@ -41,12 +39,12 @@ export default {
 <style scoped lang="scss">
 .v-card {
   margin: 5px;
-  min-height: 100xp;
+  min-height: 100px;
 }
 .subcards {
-  display: flex;
-  height: 100px;
-  Justify-content: space-around;
-  flex-flow: row wrap;
+  // display: flex;
+  // height: 100px;
+  // Justify-content: space-around;
+  // flex-flow: row wrap;
 }
 </style>
