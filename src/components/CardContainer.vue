@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container(v-if="subcards")
-  v-layout( v-layout row wrap v-if="subcards.length")
+  v-layout(wrap v-if="subcards.length")
       v-flex(v-for="(item) in subcards" v-bind:key="item")
         card(:id="item")
        

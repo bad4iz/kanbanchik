@@ -9,6 +9,7 @@ import HelloWorld from '../src/components/HelloWorld';
 import CardContainer from '../src/components/CardContainer';
 // import Welcome from './Welcome';
 import Card from '../src/components/Card';
+import SpeedDial from '../src/components/SpeedDial';
 // import CardContainer from '../src/components/CardContainer';
 
 import store from '../src/store/store';
@@ -39,6 +40,13 @@ storiesOf('Cards', module)
 .add('card two', () => ({
   components: { Card },
   template: '<card :id="2" :showApp="action" />',
+  store,
+  methods: { action: linkTo('Button') },
+}));
+
+storiesOf('SpeedDial', module).add('to SpeedDial', () => ({
+  components: { SpeedDial },
+  template: '<speed-dial  :showApp="action" />',
   store,
   methods: { action: linkTo('Button') },
 }));

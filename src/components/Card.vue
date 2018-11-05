@@ -1,9 +1,16 @@
 <template lang="pug">
 v-card
   v-toolbar(color="cyan") 
-    v-toolbar-title {{card.value}} card
-      v-btn(absolute bottom color="success" right fab @click="addCard(id)")
+    speed-dial
+      v-btn(fab small color="indigo" @click="addCard(id)")
         v-icon add
+      v-btn(fab small color="red" )
+        v-icon delete
+      v-btn(fab small color="green")
+        v-icon edit
+    v-toolbar-title {{card.value}} card
+      
+      
   v-card-text 
     card-container(:subcards="card.subcards") 
 
@@ -12,7 +19,8 @@ v-card
 
 <script>
 import { mapActions } from 'vuex';
-// import CardContainer from './CardContainer'
+import SpeedDial from './SpeedDial'
+
 
 export default {
   props: {
@@ -22,7 +30,8 @@ export default {
     }
   },
   components: {
-    CardContainer:  () => import('./CardContainer')
+    CardContainer:  () => import('./CardContainer'),
+    SpeedDial,
   },
   data() {
     return {
