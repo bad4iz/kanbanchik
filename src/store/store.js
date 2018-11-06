@@ -61,6 +61,7 @@ export default new Vuex.Store({
     //   state[type] = { ...state[type], item };
     // },
     deleteCard(state, id) {
+      // todo: сделать удаление рекурсивно детей
       let { list } = state;
       if(list[id].subcards && list[id].subcards.length) {
         list[id].subcards.forEach(cardId => {
