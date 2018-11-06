@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -8,42 +9,45 @@ export default new Vuex.Store({
       0: {
         id: 0,
         check: true,
+        score: 0,
         value: '',
         subcards: [1],
-        parent: 0
+        parent: 0,
 
       },
       1: {
         id: 1,
         check: true,
+        score: 2,
         value: 'one',
         subcards: [2, 3],
-        parent: 0
+        parent: 0,
       },
       2: {
         id: 2,
         check: false,
+        score: 0,
         value: 'two',
         subcards: [],
-        parent: 1
+        parent: 1,
       },
-      3:{
+      3: {
         id: 3,
         check: false,
+        score: 0,
         value: 'three',
         subcards: [],
-        parent: 1
+        parent: 1,
       },
+    },
   },
-},
   getters: {
     getList(state) {
-      console.log('list')
+      console.log('list');
       return state.list;
     },
-    getCard: state => (id) => {
-      return state.list[id]
-    }
+    getCard: state => id => state.list[id],
+    getScore: state => id => state.list[id].score,
   },
   mutations: {
     // updateById(state,  {type, item} ) {
@@ -58,35 +62,41 @@ export default new Vuex.Store({
     // update(state, { type, item }) {
     //   state[type] = { ...state[type], item };
     // },
-    delete(state, id) {
-      state.list = state.list.filter(card => card.id !== id)
+    deleteCard(state, id) {
+      state.list = state.list[id];
     },
     addCard(state, parent) {
       let { list } = state;
       const newCard = {
         id: new Date().getTime(),
         subcards: [],
-        parent: parent,
-      }
-      list = {...list, [newCard.id]:newCard}
+        parent,
+      };
+      list = { ...list, [newCard.id]: newCard };
 
       const parentCard = list[parent];
-      console.log(parentCard.subcards)
       parentCard.subcards.push(newCard.id);
 
-      state.list = {...list, [parent]:parentCard}
+      state.list = { ...list, [parent]: parentCard };
 
       console.log(state.list);
-    }
+    },
+    increment(state, id) {
+      state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score+1}};
+    },
+    decrement(state, id) {
+      state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score-1}};
+    },
   },
   actions: {
-    delete({ commit }, id) {
-      console.log(id);
-      commit('delete', id);
+    deleteCard({ commit }, id) {
+      commit('deleteCard', id);
     },
     addCard({ commit }, parent) {
-      console.log(parent);
-      commit('addCard', parent)
-    }
+      commit('addCard', parent);
+    },
+    increment({ commit }, id) {
+      commit('increment', id);
+    },
   },
 });

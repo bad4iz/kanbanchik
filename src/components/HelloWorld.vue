@@ -4,9 +4,9 @@
 
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-   
+
     <h2>Ecosystem</h2>
-    
+
   </div>
 </template>
 

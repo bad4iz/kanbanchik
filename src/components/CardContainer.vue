@@ -41,10 +41,4 @@ export default {
   margin: 5px;
   min-height: 100px;
 }
-.subcards {
-  // display: flex;
-  // height: 100px;
-  // Justify-content: space-around;
-  // flex-flow: row wrap;
-}
 </style>

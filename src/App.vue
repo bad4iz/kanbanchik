@@ -15,7 +15,7 @@
       <v-layout>
         <router-view/>
       </v-layout>
- 
+
     </v-app>
 </template>
 
@@ -26,7 +26,7 @@ export default {
       darkTheme: true,
     };
   },
-}
+};
 </script>
 
 

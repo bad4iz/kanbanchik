@@ -20,14 +20,15 @@
       </v-btn>
     </speed-dial>
 
-  
+
   </div>
 </template>
 <script>
-import SpeedDial from '@/components/SpeedDial'
+import SpeedDial from '@/components/SpeedDial';
+
 export default {
   components: {
-    SpeedDial
-  }
-}
+    SpeedDial,
+  },
+};
 </script>
