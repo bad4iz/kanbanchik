@@ -1,8 +1,17 @@
 <template lang="pug">
 v-container(v-if="subcards")
+  //- select(v-model="currentOrder")
+  //-   option(value='id') sort by id
+  //-   option(value='value') sort by value
+  //-   option(value='score') sort by score
+  .text-xs-center
+    v-chip( outline color="success" @click="setCurrentOrder('score')") sort score
+    v-chip( outline color="primary" @click="setCurrentOrder('id')")  sort id
   v-layout(wrap v-if="subcards.length")
-      v-flex(v-for="(item) in subcards" v-bind:key="item")
-        card(:id="item")
+
+    
+    v-flex(v-for="(item) in orderedItems()" v-bind:key="item.id")
+      card(:id="item.id")
        
 </template>
 
@@ -17,6 +26,7 @@ export default {
   },
   data() {
     return {
+      currentOrder: 'id'
     };
   },
   computed: {
@@ -31,6 +41,16 @@ export default {
       'addCard' // проксирует `this.addCard()` в `this.$store.dispatch('addCard')`
 
     ]),
+    setCurrentOrder(current){
+      this.currentOrder = current;
+    },
+    orderedItems(){
+      const arr = this.subcards.map(id => this.getCard(id));
+        
+      return arr.sort((a, b) => {
+          return a[this.currentOrder]-b[this.currentOrder];
+      })
+    }
   }
 };
 </script>
