@@ -2,7 +2,7 @@
 v-card
   v-toolbar(color="cyan")
     speed-dial
-      v-btn(fab small color="indigo" @click="deleteCard(id)")
+      v-btn(fab small color="indigo" @click="addCard(id)")
         v-icon add
       v-btn(fab small color="red")
         v-icon delete
@@ -14,11 +14,11 @@ v-card
     card-container(:subcards="card.subcards")
   v-card-actions
     v-btn( icon @click="increment(id)")
-      v-icon exposure_neg_1
+      v-icon exposure_plus_1
     v-btn( icon)
       v-icon favorite
     v-btn( icon @click="decrement(id)")
-      v-icon exposure_plus_1
+      v-icon exposure_neg_1
     v-spacer
 
     v-btn( icon)

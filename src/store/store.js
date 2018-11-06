@@ -12,7 +12,6 @@ export default new Vuex.Store({
         score: 0,
         value: '',
         subcards: [1],
-        parent: 0,
 
       },
       1: {
@@ -43,7 +42,6 @@ export default new Vuex.Store({
   },
   getters: {
     getList(state) {
-      console.log('list');
       return state.list;
     },
     getCard: state => id => state.list[id],
@@ -66,10 +64,12 @@ export default new Vuex.Store({
       state.list = state.list[id];
     },
     addCard(state, parent) {
+      // развернул для понятности
       let { list } = state;
       const newCard = {
-        id: new Date().getTime(),
+        id: new Date().getTime()+Math.round(Math.random()*100),
         subcards: [],
+        score: 0,
         parent,
       };
       list = { ...list, [newCard.id]: newCard };
@@ -78,14 +78,21 @@ export default new Vuex.Store({
       parentCard.subcards.push(newCard.id);
 
       state.list = { ...list, [parent]: parentCard };
-
-      console.log(state.list);
     },
     increment(state, id) {
+      // тут свернул 
       state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score+1}};
+      // console.log(this)
+      if(state.list[id].parent){
+        this.commit('increment', state.list[id].parent)
+      }
     },
     decrement(state, id) {
+      // тут свернул тоже
       state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score-1}};
+      if(state.list[id].parent){
+        this.commit('decrement', state.list[id].parent)
+      }
     },
   },
   actions: {
@@ -94,9 +101,13 @@ export default new Vuex.Store({
     },
     addCard({ commit }, parent) {
       commit('addCard', parent);
+
     },
-    increment({ commit }, id) {
+    increment({ dispatch, commit }, id) {
       commit('increment', id);
+    },
+    decrement({ dispatch, commit }, id) {
+      commit('decrement', id);
     },
   },
 });
