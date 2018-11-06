@@ -61,7 +61,23 @@ export default new Vuex.Store({
     //   state[type] = { ...state[type], item };
     // },
     deleteCard(state, id) {
-      state.list = state.list[id];
+      let { list } = state;
+      if(list[id].subcards && list[id].subcards.length) {
+        list[id].subcards.forEach(cardId => {
+          this.commit('deleteCard', cardId);
+        });
+      }      
+      
+      // delete parent
+      if(list[id].parent) {
+        const parent = list[list[id].parent]
+        while (parent.subcards.indexOf(id) !== -1) {
+          parent.subcards.splice(parent.subcards.indexOf(id), 1);
+        }
+        list = {...list, [list[id].parent]:parent}
+      }
+      delete list[id];
+      state.list = list;
     },
     addCard(state, parent) {
       // развернул для понятности
@@ -86,6 +102,7 @@ export default new Vuex.Store({
       if(state.list[id].parent){
         this.commit('increment', state.list[id].parent)
       }
+      console.log(state.list)
     },
     decrement(state, id) {
       // тут свернул тоже
