@@ -4,7 +4,7 @@ v-card
     speed-dial
       v-btn(fab small color="indigo" @click="addCard(id)")
         v-icon add
-      v-btn(fab small color="red" @click="deleteCard(id)")
+      v-btn(v-if="!card.subcards.length" fab small color="red" @click="deleteCard(id)")
         v-icon delete
       v-btn(fab small color="green")
         v-icon edit
