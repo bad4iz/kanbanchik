@@ -38,17 +38,20 @@ export const addCard = (state, parent) => {
 
 // todo state.count++
 export const increment = (state, id) => {
-  // тут свернул 
-  state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score+1}};
-  // console.log(this)
-  // if(state.list[id].parent){
-  //   this.commit('increment', state.list[id].parent)
-  // }
+  // тут свернул и сделал имутабле
+  // state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score+1}};
+  // вот как все просто без имутабле  
+  state.list[id].score++;
 }
 export const decrement = (state, id) => {
-  // тут свернул тоже
-  state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score-1}};
+  // тут свернул тоже и сделал имутабле
+  // state.list = {...state.list, [id]:{...state.list[id], score:state.list[id].score-1}};
+  // вот как все просто без имутабле
+  state.list[id].score++;
+  
+  
   if(state.list[id].parent){
     this.commit('decrement', state.list[id].parent)
   }
 }
+// 
