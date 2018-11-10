@@ -11,8 +11,9 @@ const store = new Vuex.Store({
   state,
   getters,
   actions,
-  mutations
-})
+  mutations,
+  strict: process.env.NODE_ENV !== 'production'
+});
 
 if (module.hot) {
   module.hot.accept([
