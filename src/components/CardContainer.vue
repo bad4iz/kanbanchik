@@ -1,6 +1,6 @@
 <template lang="pug">
 v-container(v-if="subcards")
-  .text-xs-center
+  .text-xs-center(v-if="subcards.length")
     v-chip( outline color="success" @click="setCurrentOrder('score')" ) sort score
     v-chip( outline color="primary" @click="setCurrentOrder('id')")  sort id
   v-layout(wrap v-if="subcards.length")
