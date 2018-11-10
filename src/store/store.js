@@ -48,18 +48,6 @@ export default new Vuex.Store({
     getScore: state => id => state.list[id].score,
   },
   mutations: {
-    // updateById(state,  {type, item} ) {
-    //   state[type] = state.lists.map((el) => {
-    //     if(el.id ==item.id) {
-    //       el.value = item.value;
-    //     }
-    //     return el;
-    //   });
-    //   state.element = {value: item.value}
-    // },
-    // update(state, { type, item }) {
-    //   state[type] = { ...state[type], item };
-    // },
     deleteCard(state, id) {
       // todo: сделать удаление рекурсивно детей
       let { list } = state;
@@ -103,7 +91,6 @@ export default new Vuex.Store({
       if(state.list[id].parent){
         this.commit('increment', state.list[id].parent)
       }
-      console.log(state.list)
     },
     decrement(state, id) {
       // тут свернул тоже
@@ -118,6 +105,10 @@ export default new Vuex.Store({
       commit('deleteCard', id);
     },
     addCard({ commit }, parent) {
+      commit('addCard', parent);
+      commit('addCard', parent);
+      commit('addCard', parent);
+      commit('addCard', parent);
       commit('addCard', parent);
 
     },

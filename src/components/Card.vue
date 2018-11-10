@@ -1,5 +1,5 @@
 <template lang="pug">
-v-card
+v-card(:dark="darkTheme")
   v-toolbar(color="cyan")
     speed-dial
       v-btn(fab small color="indigo" @click="addCard(id)")
@@ -39,6 +39,10 @@ export default {
       type: Number,
       default: 1,
     },
+    darkTheme:{
+      type: Boolean,
+      default: false,
+    }
   },
   components: {
     CardContainer: () => import('./CardContainer'),

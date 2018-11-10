@@ -6,13 +6,15 @@
     <h2>Essential Links</h2>
 
     <h2>Ecosystem</h2>
-
+    <h3>{{arg}}</h3>
+    <slot/>  
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  props:['arg'],
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',

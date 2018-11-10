@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "HOST=localhost vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
@@ -12,6 +12,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "material-design-icons": "^3.0.1",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
@@ -22,6 +23,7 @@
     "@babel/core": "^7.1.2",
     "@cypress/webpack-preprocessor": "^3.0.0",
     "@storybook/addon-actions": "^4.0.2",
+    "@storybook/addon-knobs": "^4.0.4",
     "@storybook/addon-links": "^4.0.2",
     "@storybook/addons": "^4.0.2",
     "@storybook/vue": "^4.0.2",

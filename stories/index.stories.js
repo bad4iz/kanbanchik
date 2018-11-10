@@ -3,6 +3,7 @@
 import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import { withKnobs, number, boolean } from '@storybook/addon-knobs/vue';
 
 import MyButton from './MyButton';
 import HelloWorld from '../src/components/HelloWorld';
@@ -13,6 +14,37 @@ import SpeedDial from '../src/components/SpeedDial';
 // import CardContainer from '../src/components/CardContainer';
 
 import store from '../src/store/store';
+
+
+
+const stories = storiesOf('Storybook Knobs', module);
+stories.addDecorator(withKnobs);
+
+
+storiesOf('path/to/Component', module)
+    .addDecorator(withKnobs) 
+    .add('to HelloWorld', () => ({
+      components: { HelloWorld },
+      data() {
+        return {
+          msg: number('highlightTagId', 64)
+        };
+      },
+      template: `<hello-world :showApp="action" :arg="msg">number("highlightTagId", 64)</hello-world>`,
+      methods: { action: linkTo('Button') },
+    }))
+    .add('card one', () => ({
+      components: { Card },
+      template: '<card :id="1" :darkTheme="darkTheme" :showApp="action" />',
+      data() {
+        return {
+          darkTheme: boolean('dark', false)
+        };
+      },
+      store,
+      methods: { action: linkTo('Button') },
+    }))
+
 
 
 
@@ -44,15 +76,13 @@ storiesOf('Cards', module)
   methods: { action: linkTo('Button') },
 }));
 
-storiesOf('SpeedDial', module).add('to SpeedDial', () => ({
-  components: { SpeedDial },
-  template: '<speed-dial  :showApp="action" />',
-  store,
-  methods: { action: linkTo('Button') },
+storiesOf('SpeedDial', module)
+  .add('to SpeedDial', () => ({
+    components: { SpeedDial },
+    template: '<speed-dial  :showApp="action" />',
+    store,
+    methods: { action: linkTo('Button') },
 }));
-
-
-
 
 
 storiesOf('Button', module)

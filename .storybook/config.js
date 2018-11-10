@@ -1,6 +1,7 @@
 import { configure } from '@storybook/vue';
 
 import "vuetify/dist/vuetify.css";
+import "material-design-icons/iconfont/material-icons.css";
 import Vue from "vue";
 import Vuex from "vuex";
 import Vuetify from "vuetify";
