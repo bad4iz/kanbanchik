@@ -14,7 +14,13 @@ const store = new Vuex.Store({
   actions,
   mutations,
   plugins: [parentActions()],
-  strict: process.env.NODE_ENV !== 'production'
+  /**
+   * В строгом режиме любая попытка внесения изменений 
+   * в состояние Vuex, кроме мутаций, будет выбрасывать 
+   * ошибку. Это гарантирует, что все мутации состояния будут 
+   * явно отслеживаться через инструменты отладки.
+   */
+  strict: process.env.NODE_ENV !== 'production' 
 });
 
 if (module.hot) {
