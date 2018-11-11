@@ -13,7 +13,7 @@ import Card from '../src/components/Card';
 import SpeedDial from '../src/components/SpeedDial';
 // import CardContainer from '../src/components/CardContainer';
 
-import store from '../src/store/store';
+import store from '../src/store';
 
 
 
