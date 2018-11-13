@@ -17,11 +17,6 @@ export default {
   props: {
     msg: String
   },
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
 };
 </script>
 
