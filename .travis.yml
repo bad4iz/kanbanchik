@@ -13,5 +13,5 @@ before_install:
 install:
   - yarn --frozen-lockfile --non-interactive
   - yarn global add @vue/cli
-  - yarn serve
-
+  - yarn run lint
+  - yarn run test:unit
