@@ -14,7 +14,9 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props:['arg'],
+  props: {
+    msg: String
+  }
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
