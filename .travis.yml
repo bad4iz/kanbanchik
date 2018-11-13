@@ -11,4 +11,5 @@ before_install:
 
 install:
   - yarn
+  - yarn global add @vue/cli
   - yarn run test:unit
